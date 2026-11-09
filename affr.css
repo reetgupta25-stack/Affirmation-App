@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(-45deg, #2d173b, #5b245f, #8c345d, #3d204e);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    padding: 50px 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: cardAppear 0.8s ease both;
+}
+
+.icon {
+    font-size: 40px;
+    color: #ffd166;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+h1 {
+    margin: 15px 0;
+    font-size: clamp(28px, 5vw, 38px);
+    background: linear-gradient(90deg, #ffd166, #ff9a9e, #fbc2eb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    margin-bottom: 30px;
+    color: #ead8f0;
+    font-size: 15px;
+}
+
+#affirmation {
+    min-height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    font-size: 21px;
+    line-height: 1.6;
+    color: #fff7e8;
+    animation: textAppear 0.5s ease;
+}
+
+button {
+    padding: 15px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff9a9e, #f6a45b);
+    color: #351b3e;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button span {
+    margin-left: 8px;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 154, 158, 0.3);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.footer {
+    margin-top: 30px;
+    color: #d8c4e2;
+    font-size: 13px;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(15deg) scale(1.2); }
+}
+
+@keyframes textAppear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 35px 20px;
+    }
+
+    #affirmation {
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
